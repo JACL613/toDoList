@@ -2,20 +2,34 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 // import './App.css'
-import { useState } from 'react';
-import { useSelector} from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector} from 'react-redux';
 import FormLogin from './components/FormLogin';
 import FormCreateNote from './components/FormCreateNote';
 import CardNotas from './components/CardNotas';
 import FormCreateUser from './components/FormCreateUser';
+import noteServices from './services/noteServices';
+import { actionSaveAllNotes } from './actions/notas.actions';
 
 function App() {
   const state = useSelector((state) => state.notas);
   const user = useSelector((state) => state.user);
+  const dispatch = useDispatch()
   const [show, setShow] = useState(false);
- 
- 
+
+  
+  useEffect(() => {
+    noteServices.getAll()
+    .then((res) => {
+      dispatch(actionSaveAllNotes(res.todos))
+    })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[user])
+  
   const ComponentNotes = () => {
+    
+    
+  
     return <div>
       <h1>To Do List</h1>
       {/* Componente render notas */}
@@ -32,12 +46,14 @@ function App() {
   
   return (
     <div className="">
+    
       {user._id ? <h3>{user.firstName}</h3>:null}
       
       {
         user._id ?
         <div>
-          <ComponentNotes />  
+      
+          <ComponentNotes id={user._id} />  
           <FormCreateNote />        
         </div>
         :

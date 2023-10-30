@@ -1,12 +1,17 @@
 /* eslint-disable react/prop-types */
 import {useDispatch} from 'react-redux';
 import { actionDeleteNote } from '../actions/notas.actions';
+import noteServices from '../services/noteServices';
 
 export default function CardNotas({item}) {
     const dispatch = useDispatch();
     const handleActionDelete = (id) => {
         console.log(id);
-        dispatch(actionDeleteNote({id}));
+        noteServices.Delete(id)
+        .then((res) => {
+          console.log(res);
+          dispatch(actionDeleteNote({id}));
+        })
       }
   return (
     <>
@@ -18,7 +23,7 @@ export default function CardNotas({item}) {
           Fecha Final: {item.finishDate.slice(0,10)}
           <br/> 
           Estado: {item.isCompleted === true ? 'Completada' : 'Pendiente'}
-          <button onClick={() => handleActionDelete(item.id)}>Delete</button>
+          <button onClick={() => handleActionDelete(item._id)}>Delete</button>
           </li>
     </>
   )

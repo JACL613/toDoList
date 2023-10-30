@@ -1,42 +1,32 @@
 import axios from 'axios'
-const baseUrl = '/api/notes'
+const baseUrl = 'https://birsbane-numbat-zjcf.1.us-1.fl0.io/api/todo'
 
 let token 
 let NotaUp
 
 const setToken = newToken => {
-    token = `Bearer ${newToken}` 
+    console.log(newToken);
+    token = newToken 
 }
 
 const create = async (objNote ) => {
-    const config = {
-        headers: {
-            Authorization: token 
-        }
-    }
-    console.log(token)
-    const request = axios.post(`${baseUrl}/createNote`,objNote,config)
+    const request = axios.post(`${baseUrl}/`,objNote)
     return request.then((response) => response.data)
 }
 
-const getAll = async (objNote) => {
-    const config = {
-        headers: {
-            Authorization: token 
-        }
-    }
-    const request = axios.get(`${baseUrl}/`,config)
+const getAll = async () => {
+    // const config = {
+    //     params: {ID :token._id}
+    // }
+
+    const request = axios.get(`${baseUrl}/?userId=${token._id}`)
     return request.then((response) => response.data)
 }
 
 const Delete = async (objNote) => {
-    const config = {
-        headers: {
-            Authorization: token 
-        }
-    }
-    const request = axios.delete(`${baseUrl}/${objNote.id}`,config)
-    return request.then((response) => response.data)
+    console.log(objNote);
+    const request = await axios.delete(`${baseUrl}/${objNote}`,)
+    return request
 }
 const noteUpdate = async (objNoteUp) => {
     const config = {

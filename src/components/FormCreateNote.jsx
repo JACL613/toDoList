@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { actionCreateNote} from '../actions/notas.actions';
 import {useDispatch , useSelector} from 'react-redux';
 import Calendario from './Calendario';
+import noteServices from '../services/noteServices';
 
 
 
@@ -16,10 +17,14 @@ export default function FormCreateNote() {
   
     const handleSubmitNote = (e) => {
         e.preventDefault();
-        const id = Math.floor(Math.random() * 999999);
+        // const id = Math.floor(Math.random() * 999999);
       
-        const data = {id, name:title, description:body, finishDate: fechaEvent , isCompleted , userId: user._id }
-        dispatch(actionCreateNote(data));
+        const data = { name:title, description:body, finishDate: fechaEvent , isCompleted , userId: user._id }
+        noteServices.create(data)
+        .then((res) => {
+          console.log(res);
+          dispatch(actionCreateNote(res.todo));
+        })
         setTitle('');
         setBody('');
       };

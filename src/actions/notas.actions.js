@@ -1,5 +1,11 @@
-import { addNote, deleteNote, updateNote } from "../reducer/notas.reducer"
+import { addNote, deleteNote, saveAddNotes, updateNote } from "../reducer/notas.reducer"
 
+export const actionSaveAllNotes = (data) =>{
+    console.log('action',data);
+    return dispatch => {
+        dispatch(saveAddNotes(data))
+    }
+}
 export const actionCreateNote = (data) =>{
     console.log('action',data);
     return dispatch => {

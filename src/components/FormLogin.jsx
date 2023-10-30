@@ -2,6 +2,7 @@ import { useState } from "react";
 import loginServices from '../services/loginServices';
 import { actionLogin } from '../actions/user.actions';
 import {useDispatch } from 'react-redux';
+import noteServices from "../services/noteServices";
 
 
 export default function FormLogin() {
@@ -11,7 +12,10 @@ export default function FormLogin() {
     const handleSubmitLogin = (e) => {
         e.preventDefault()
         loginServices.login({email, password})
-        .then((res) => {dispatch(actionLogin(res.data.user))})
+        .then((res) => {
+          dispatch(actionLogin(res.data.user))
+          noteServices.setToken(res.data.user)
+        })
         .catch(err => {console.log(err);})
       }
   return (
