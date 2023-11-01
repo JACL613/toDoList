@@ -14,8 +14,11 @@ function Calendario({fechaEvent}) {
   
 function handelClickEvent(arg) {
   console.log(arg);
-  fechaEvent(arg.dateStr)
-  setEvents([...events , {title: 'New Event' , start: new Date(arg.date)}])
+  if (confirm('Desea elegir esta fecha'+arg.dateStr)) {
+    fechaEvent(arg.dateStr)
+    setEvents([...events , {title: 'New Event' , start: new Date(arg.date)}])
+  }
+  
 }
   return (
     <div>
@@ -24,12 +27,16 @@ function handelClickEvent(arg) {
         plugins={[dayGridPlugin , interactionPlugin , timegridPlugin ]}
         events={events}
         headerToolbar={{
-          left: 'prev,next',
-          center: 'title',
+          left: 'title',
           right: 'dayGridMonth,timeGridWeek,timeGridDay' // user can switch between the two
   }}
+        footerToolbar={{
+          center: 'prev,next',
+        }}
+        locale={'es'}
         dateClick={handelClickEvent}
-        
+        selectable={true}
+        select={(e) => { console.log(e)}}
         eventContent={renderEventContent}
       />
     </div>
