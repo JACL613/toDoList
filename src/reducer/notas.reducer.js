@@ -22,7 +22,8 @@ const notesReducer = createSlice({
         },
         updateNote(state, action){
             // Actualiza una nota del estado
-            return state.map(nota => nota._id === action.payload._id?action.payload:nota)
+            
+            return state.map(nota => nota._id === action.payload._id?{...action.payload}:nota)
         }
         
     }

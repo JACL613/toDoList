@@ -2,7 +2,6 @@ import axios from 'axios'
 const baseUrl = 'https://birsbane-numbat-zjcf.1.us-1.fl0.io/api/todo'
 
 let token 
-let NotaUp
 
 const setToken = newToken => {
     console.log(newToken);
@@ -28,21 +27,13 @@ const Delete = async (objNote) => {
     const request = await axios.delete(`${baseUrl}/${objNote}`,)
     return request
 }
-const noteUpdate = async (objNoteUp) => {
-    const config = {
-        headers: {
-            Authorization: token 
-        }
-    }
-    const notaUp =  {title: objNoteUp.title,content: objNoteUp.content} 
+const Update = async (objNoteUp) => {
+    
+    console.log('llega' , objNoteUp);
 
-    const request = axios.put(`${baseUrl}/${objNoteUp.id}`,notaUp,config) 
+    const request = axios.put(`${baseUrl}/`,objNoteUp) 
     console.log(request);   
-    return request.then((response) => response.data)
+    return request
 }
-const note = () => {
-    console.log(NotaUp)
-    return NotaUp
-}
-// eslint-disable-next-line import/no-anonymous-default-export
-export default {setToken , create , getAll , Delete, noteUpdate , note }
+
+export default {setToken , create , getAll , Delete, Update   }
