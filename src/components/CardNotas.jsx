@@ -3,7 +3,7 @@ import {useDispatch} from 'react-redux';
 import { actionDeleteNote, actionUpdateNote } from '../actions/notas.actions';
 import noteServices from '../services/noteServices';
 
-export default function CardNotas({item}) {
+export default function CardNotas({item , identificador}) {
     const dispatch = useDispatch();
     const handleActionDelete = (id) => {
         console.log(id);
@@ -28,7 +28,7 @@ export default function CardNotas({item}) {
     }
   return (
     <>
-         <li>
+         <li key={identificador}>
           Titulo: {item.name}            
           <br/> 
           Description: {item.description}

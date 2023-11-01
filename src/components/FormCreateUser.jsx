@@ -22,10 +22,14 @@ export default function FormCreateUser() {
   return (
     <form onSubmit={handleSubmitRegistration}>
     <h2>Registrar</h2>
-        <input type="text" onChange={(e) => setFirstName(e.target.value)}/>
-        <input type="text" onChange={(e) => setLastName(e.target.value)}/>
-        <input type="email" onChange={(e) => setEmail(e.target.value)}/>
-        <input type="password" onChange={(e) => setPassword(e.target.value)}/>
+        <label htmlFor='firstName'>First Name</label>
+        <input name='firstName' type="text" onChange={(e) => setFirstName(e.target.value)}/>
+        <label htmlFor='lastName'>Last Name</label>
+        <input name='lastName' type="text" onChange={(e) => setLastName(e.target.value)}/>
+        <label htmlFor='email'>Email</label>
+        <input name="email" type="email" onChange={(e) => setEmail(e.target.value)}/>
+        <label htmlFor="password">Password</label>
+        <input name='password' type="password" onChange={(e) => setPassword(e.target.value)}/>
         <button type="submit">Registrar</button>
     </form>
     )

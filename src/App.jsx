@@ -36,7 +36,7 @@ function App() {
       <ul>
         {state.length > 0 && !state.includes(null)
           ?state.map((item) => (
-            <CardNotas key={item.id} item={item} />
+            <CardNotas identificador={item._id} item={item} />
            ))
            :<li>No hay notas</li>}
       </ul>
@@ -53,7 +53,7 @@ function App() {
         user._id ?
         <div>
       
-          <ComponentNotes id={user._id} />  
+          <ComponentNotes  />  
           <FormCreateNote />        
         </div>
         :
