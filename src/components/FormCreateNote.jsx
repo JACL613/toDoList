@@ -34,9 +34,13 @@ export default function FormCreateNote() {
     <div>
       <Calendario fechaEvent={e => setFechaEvent(e)}/>
     </div>
-    <input onChange={e => setTitle(e.target.value)} type="text" name="title" placeholder="Titulo" value={title} required/>
-    <input onChange={e => setBody(e.target.value)} type="text" name="body" placeholder="Descripcion" value={body} required/>
-    <input type="checkbox" onChange={() => {setisCompleted(!isCompleted)}} />
+    <label htmlFor="Title">Title</label>
+    <input name="Title" onChange={e => setTitle(e.target.value)} type="text"  placeholder="Titulo" value={title} required/>
+    <label htmlFor="body">Descripcion</label>
+    <input name="body" onChange={e => setBody(e.target.value)} type="text" placeholder="Descripcion" value={body} required/>
+    <input type="date" defaultValue={fechaEvent} onClick={(e) => {e.preventDefault()}}/>
+    <label htmlFor="isCompleted">Estado</label>
+    <input name="isCompleted" type="checkbox" onChange={() => {setisCompleted(!isCompleted)}} />
     <button type="submit">Add</button> 
 </form>
   )

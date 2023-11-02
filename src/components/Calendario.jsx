@@ -16,13 +16,12 @@ function handelClickEvent(arg) {
   console.log(arg);
   if (confirm('Desea elegir esta fecha'+arg.dateStr)) {
     fechaEvent(arg.dateStr)
-    setEvents([...events , {title: 'New Event' , start: new Date(arg.date)}])
+    // setEvents([...events , {title: 'New Event' , start: new Date(arg.date)}])
   }
   
 }
   return (
-    <div>
-      <h1>Demo App</h1>
+    <>
       <FullCalendar
         plugins={[dayGridPlugin , interactionPlugin , timegridPlugin ]}
         events={events}
@@ -39,7 +38,7 @@ function handelClickEvent(arg) {
         select={(e) => { console.log(e)}}
         eventContent={renderEventContent}
       />
-    </div>
+    </>
   )
 }
 

@@ -27,9 +27,9 @@ export default function FormCreateUser() {
         <label htmlFor='lastName'>Last Name</label>
         <input name='lastName' type="text" onChange={(e) => setLastName(e.target.value)}/>
         <label htmlFor='email'>Email</label>
-        <input name="email" type="email" onChange={(e) => setEmail(e.target.value)}/>
+        <input name="email" type="email" onChange={(e) => setEmail(e.target.value)} autoComplete='username'/>
         <label htmlFor="password">Password</label>
-        <input name='password' type="password" onChange={(e) => setPassword(e.target.value)}/>
+        <input name='password' type="password" onChange={(e) => setPassword(e.target.value)} autoComplete='current-password'/>
         <button type="submit">Registrar</button>
     </form>
     )

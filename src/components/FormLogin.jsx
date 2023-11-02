@@ -22,8 +22,8 @@ export default function FormLogin() {
       <form onSubmit={handleSubmitLogin} >
         <h2>Login</h2>
         
-        <input onChange={(e) => {setEmail(e.target.value)}} type="email" placeholder='correo'/>
-        <input onChange={(e) => {setPassword(e.target.value)}} type="password" placeholder='contraseña' />
+        <input onChange={(e) => {setEmail(e.target.value)}} type="email" placeholder='correo' autoComplete="username"/>
+        <input onChange={(e) => {setPassword(e.target.value)}} type="password" placeholder='contraseña' autoComplete="current-password"/>
         <button type="submit">Enviar</button>
       </form>
   )
