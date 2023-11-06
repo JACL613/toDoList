@@ -1,7 +1,7 @@
-import { setUser } from "../reducer/user.reducer"
+import { setUser } from '../reducer/user.reducer'
 
 export const actionLogin = (data) => {
-    return dispatch => {
-        dispatch(setUser(data))
-    }
+  return dispatch => {
+    dispatch(setUser(data))
+  }
 }

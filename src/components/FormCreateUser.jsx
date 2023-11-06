@@ -1,24 +1,23 @@
-import  { useState } from 'react'
-import loginServices from '../services/loginServices';
-import { actionLogin } from '../actions/user.actions';
-import { useDispatch } from 'react-redux';
+import { useState } from 'react'
+import loginServices from '../services/loginServices'
+import { actionLogin } from '../actions/user.actions'
+import { useDispatch } from 'react-redux'
 
-export default function FormCreateUser() {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('email');
-    const [password, setPassword] = useState('');
-    const dispatch = useDispatch();
+export default function FormCreateUser () {
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('email')
+  const [password, setPassword] = useState('')
+  const dispatch = useDispatch()
 
-
-    const handleSubmitRegistration = (e) =>{
-      e.preventDefault();
-      loginServices.create({firstName , lastName , email , password})
-      .then(( res ) => {
-        console.log(res);
+  const handleSubmitRegistration = (e) => {
+    e.preventDefault()
+    loginServices.create({ firstName, lastName, email, password })
+      .then((res) => {
+        console.log(res)
         dispatch(actionLogin(res.data.user))
       })
-    }
+  }
   return (
     <form onSubmit={handleSubmitRegistration}>
     <h2>Registrar</h2>
@@ -32,5 +31,5 @@ export default function FormCreateUser() {
         <input name='password' type="password" onChange={(e) => setPassword(e.target.value)} autoComplete='current-password'/>
         <button type="submit">Registrar</button>
     </form>
-    )
+  )
 }

@@ -25,12 +25,11 @@ import avs24 from '../SVG/avatars/Avatars24.svg'
 import avs25 from '../SVG/avatars/Avatars25.svg'
 
 let select = 0
-const setSelect = newSelect =>{
-     select = newSelect
-    }
+const setSelect = newSelect => {
+  select = newSelect
+}
 const arrayAvatars = () => {
-    
-    return [{ref:0,img:avs25},{ref:1,img:avs1},{ref:2,img:avs2},{ref:3,img:avs3},{ref:4,img:avs4},{ref:5,img:avs5},{ref:6,img:avs6},{ref:7,img:avs7},{ref:8,img:avs8},{ref:9,img:avs9},{ref:10,img:avs10},{ref:11,img:avs11},{ref:12,img:avs12},{ref:13,img:avs13},{ref:14,img:avs14},{ref:15,img:avs15},{ref:16,img:avs16},{ref:17,img:avs17},{ref:18,img:avs18},{ref:19,img:avs19},{ref:20,img:avs20},{ref:21,img:avs21},{ref:22,img:avs22},{ref:23,img:avs23},{ref:24,img:avs24}]
+  return [{ ref: 0, img: avs25 }, { ref: 1, img: avs1 }, { ref: 2, img: avs2 }, { ref: 3, img: avs3 }, { ref: 4, img: avs4 }, { ref: 5, img: avs5 }, { ref: 6, img: avs6 }, { ref: 7, img: avs7 }, { ref: 8, img: avs8 }, { ref: 9, img: avs9 }, { ref: 10, img: avs10 }, { ref: 11, img: avs11 }, { ref: 12, img: avs12 }, { ref: 13, img: avs13 }, { ref: 14, img: avs14 }, { ref: 15, img: avs15 }, { ref: 16, img: avs16 }, { ref: 17, img: avs17 }, { ref: 18, img: avs18 }, { ref: 19, img: avs19 }, { ref: 20, img: avs20 }, { ref: 21, img: avs21 }, { ref: 22, img: avs22 }, { ref: 23, img: avs23 }, { ref: 24, img: avs24 }]
 }
 // eslint-disable-next-line import/no-anonymous-default-export
-export default {arrayAvatars, setSelect ,select}
+export default { arrayAvatars, setSelect, select }
