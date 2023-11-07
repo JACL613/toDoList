@@ -3,20 +3,26 @@ import loginServices from '../services/loginServices'
 import { actionLogin } from '../actions/user.actions'
 import { useDispatch } from 'react-redux'
 import noteServices from '../services/noteServices'
+import { useNavigate } from 'react-router-dom'
 
 export default function FormLogin () {
   const dispatch = useDispatch()
+  const redirect = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const handleSubmitLogin = (e) => {
     e.preventDefault()
+
     loginServices.login({ email, password })
       .then((res) => {
+        console.log('se envia')
+        redirect('/desboard')
         dispatch(actionLogin(res.data.user))
         noteServices.setToken(res.data.user)
       })
       .catch(err => { console.log(err) })
   }
+
   return (
       <form onSubmit={handleSubmitLogin} >
         <h2>Login</h2>

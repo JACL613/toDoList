@@ -2,6 +2,7 @@ import { useState } from 'react'
 import loginServices from '../services/loginServices'
 import { actionLogin } from '../actions/user.actions'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 export default function FormCreateUser () {
   const [firstName, setFirstName] = useState('')
@@ -9,12 +10,14 @@ export default function FormCreateUser () {
   const [email, setEmail] = useState('email')
   const [password, setPassword] = useState('')
   const dispatch = useDispatch()
+  const redirect = useNavigate()
 
   const handleSubmitRegistration = (e) => {
     e.preventDefault()
     loginServices.create({ firstName, lastName, email, password })
       .then((res) => {
         console.log(res)
+        redirect('/desboard')
         dispatch(actionLogin(res.data.user))
       })
   }
