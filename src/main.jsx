@@ -9,6 +9,7 @@ import FormLogin from './components/FormLogin.jsx'
 import FormCreateUser from './components/FormCreateUser.jsx'
 import FormCreateNote from './components/FormCreateNote.jsx'
 import CardNotas from './components/CardNotas.jsx'
+import Blog from './components/Blog.jsx'
 
 const ComponentNotes = () => {
   const state = useSelector((state) => state.notas)
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element: <FormLogin />
+      },
+      {
+        path: 'home',
+        element: <Blog />
       },
       {
         path: 'register',

@@ -15,7 +15,6 @@ export default function FormLogin () {
 
     loginServices.login({ email, password })
       .then((res) => {
-        console.log('se envia')
         redirect('/desboard')
         dispatch(actionLogin(res.data.user))
         noteServices.setToken(res.data.user)

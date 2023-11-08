@@ -29,13 +29,10 @@ function Calendario ({ fechaEvent, setClose }) {
       return newState
     })
     setEvents(newEvents)
-    console.log(newEvents)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   function handelClickEvent (arg) {
-    console.log(arg)
-
     Swal.fire({
       title: `Quiere seleccionar esta fecha ${arg.dateStr}?`,
       showCancelButton: true,
@@ -68,9 +65,8 @@ function Calendario ({ fechaEvent, setClose }) {
     // }
   }
   return (
-    <>
+    <div className="container-calendario">
       <FullCalendar
-
         plugins={[dayGridPlugin, interactionPlugin, timegridPlugin]}
         events={events}
         timeZone='UTC'
@@ -87,17 +83,17 @@ function Calendario ({ fechaEvent, setClose }) {
         select={(e) => { console.log(e) }}
         eventContent={renderEventContent}
       />
-    </>
+    </div>
   )
 }
 
 // a custom render function
 function renderEventContent (eventInfo) {
   return (
-    <div>
+    <div className='acortar'>
       <b>Hora:{eventInfo.timeText}</b>
       <br/>
-      <i>{eventInfo.event.title}</i>
+      <i >{eventInfo.event.title}</i>
     </div>
   )
 }

@@ -24,7 +24,6 @@ export default function FormCreateNote () {
   }, [])
   const handleSubmitNote = (e) => {
     e.preventDefault()
-    // const id = Math.floor(Math.random() * 999999);
 
     const data = { name: title, description: body, finishDate: fechaEvent, isCompleted, userId: user._id }
     noteServices.create(data)
