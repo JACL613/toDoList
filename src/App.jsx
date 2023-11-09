@@ -4,6 +4,7 @@ import noteServices from './services/noteServices'
 import { actionSaveAllNotes } from './actions/notas.actions'
 import Nav from './components/Nav'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { actionLogin } from './actions/user.actions'
 
 function App () {
   // const state = useSelector((state) => state.notas)
@@ -14,6 +15,15 @@ function App () {
   // const [show, setShow] = useState(false)
 
   useEffect(() => {
+    const localUser = localStorage.getItem('user')
+    if (localUser) {
+      console.log(JSON.parse(localUser))
+      const newUser = JSON.parse(localUser)
+      if (newUser._id) {
+        console.log('user local')
+        dispatch(actionLogin(newUser))
+      }
+    }
     if (user && user._id) {
       noteServices.getAll()
         .then((res) => {
@@ -24,12 +34,14 @@ function App () {
       redirect('/home')
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user])
+  }, [])
 
   return (
     <div className="">
       <Nav />
-      <Outlet />
+      <div id='main'>
+        <Outlet />
+      </div>
     </div>
   )
 }
