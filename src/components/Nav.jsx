@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGear, faHouse, faPenToSquare, faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
+import Search from './Search'
 
 export default function Nav () {
   const [show, setShow] = useState(false)
@@ -21,14 +22,15 @@ export default function Nav () {
               <span className="line line2"></span>
               <span className="line line3"></span>
             </div>
+          <Search />
           <div className="logo">
             <h1>ToDoList</h1>
           </div>
     <div className="menu-items">
-    <li onClick={handleDropMenu}><Link to={'/home'}> <FontAwesomeIcon icon={faHouse}/> Home</Link></li>
-    <li onClick={handleDropMenu}><Link to={'/login'}><FontAwesomeIcon icon={faUser}/>Login</Link></li>
-    <li onClick={handleDropMenu}><Link to={'/register'}><FontAwesomeIcon icon={faUserPlus}/>Register</Link></li>
-    <li onClick={handleDropMenu}><Link to={'/desboard'}><FontAwesomeIcon icon={faPenToSquare}/>Desboard</Link></li>
+    <li onClick={handleDropMenu}><Link to={'./home'}> <FontAwesomeIcon icon={faHouse}/> Home</Link></li>
+    <li onClick={handleDropMenu}><Link to={'./login'}><FontAwesomeIcon icon={faUser}/>Login</Link></li>
+    <li onClick={handleDropMenu}><Link to={'./register'}><FontAwesomeIcon icon={faUserPlus}/>Register</Link></li>
+    <li onClick={handleDropMenu}><Link to={'./desboard'}><FontAwesomeIcon icon={faPenToSquare}/>Desboard</Link></li>
     <li><Link to={'/config'}><FontAwesomeIcon icon={faGear}/>Configuración</Link></li>
 
       </div>

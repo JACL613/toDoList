@@ -28,6 +28,11 @@ body {
 #main{
   height: 92vh;
   position: relative;
+  top: 62px;
+
+}
+.fc .fc-button-group {
+    flex-wrap: wrap;
 }
 
 .fc .fc-button-primary:not(:disabled).fc-button-active:focus, .fc .fc-button-primary:not(:disabled):active:focus{
@@ -65,13 +70,19 @@ body {
     background: #FECDA6;
     padding: 0.5rem;
     border-radius: 1.25rem;
+    position: absolute;
+    z-index: +2;
 }
 .acortar{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
+.container-fluid{
+  position: absolute;
+  height: 93vh;
+  width: 100%;
+}
 /* Navbar Estilos */
 
 
@@ -86,7 +97,7 @@ body {
   box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
   background: var(--backgroun-one);
   position: absolute;
-  z-index: +2;
+  z-index: +3;
 }
 
 .nav-container {
@@ -198,8 +209,8 @@ body {
 .logo {
   position: absolute;
   top: 50%;
-  right: 0%;
-  transform: translate(-0%, -50%);
+  right: 50%;
+  transform: translate(50%, -50%);
   font-size: 1.2rem;
   color: #0e2431;
 }

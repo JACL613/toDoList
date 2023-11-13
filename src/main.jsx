@@ -1,4 +1,5 @@
 import './index.css'
+import './assets/css/list-notes.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
@@ -13,7 +14,8 @@ import ListNotes from './components/ListNotes.jsx'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/toDoList',
+    basename: 'toDoList',
     element: <App />,
     children: [
       {
@@ -33,7 +35,7 @@ const router = createBrowserRouter([
         element:
 
       (<div>
-          <ListNotes/>
+          <ListNotes />
           <FormCreateNote/>
         </div>
       )

@@ -1,0 +1,61 @@
+.form__control {
+  position: relative;
+  margin: 20px 0px 20px;
+ 
+}
+.form__input {
+  background: transparent;
+  border: 0;
+  border-bottom: 2px white solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px;
+  color: red;
+}
+
+.form__input:focus,
+.form__input:valid {
+  outline: 0;
+  color: white;
+  text-align: left;
+  border-bottom-color:red;
+}
+.form__label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+  color: white;
+}
+
+.form__label span  {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form__input:focus + .form__label span,
+.form__input:valid + .form__label span {
+  color: red;
+  transform: translateY(-26px);
+}
+.input__date{
+  max-width: 10.25rem;
+}
+.grup__date {
+    position: relative;
+    min-height: 40px;
+    padding: 1.8rem 0rem 0.5rem 0rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+}
+
+.label__float {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}

@@ -4,7 +4,7 @@ const notesReducer = createSlice({
   initialState: [],
   reducers: {
     saveAddNotes (state, action) {
-      window.localStorage.setItem('notas', [...action.payload])
+      window.localStorage.setItem('notas', JSON.stringify(action.payload))
       return [...action.payload]
     },
     addNote (state, action) {
@@ -19,13 +19,22 @@ const notesReducer = createSlice({
       console.log(state.filter(nota => nota._id !== action.payload.id))
       return state.filter(nota => nota._id !== action.payload.id)
     },
-    updateNote (state, action) {
+    updateNoteState (state, action) {
       // Actualiza una nota del estado
 
       return state.map(nota => nota._id === action.payload._id ? { ...action.payload } : nota)
-    }
+    },
+    editNote (state, action) {
+      // Actualiza una nota del estado
 
+      return state.map(nota => nota._id === action.payload._id ? { ...action.payload } : nota)
+    },
+    filterNote (state, action) {
+      // filtra las notas
+      const filterState = state.filter(nota => action.payload ? nota : null)
+      return filterState
+    }
   }
 })
-export const { saveAddNotes, addNote, deleteNote, updateNote } = notesReducer.actions
+export const { saveAddNotes, addNote, deleteNote, updateNoteState, filterNote, editNote } = notesReducer.actions
 export default notesReducer.reducer

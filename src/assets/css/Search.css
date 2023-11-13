@@ -1,0 +1,58 @@
+:root{
+    --size-button:40px
+}
+.container-search{    
+    position: absolute;
+    color: white;
+    /* --size-button:40px */
+    right: 0%;
+    top: 50%;
+    transform: translate(-4%, -50%);
+}
+.input {
+  padding-left: var(--size-button);
+  height: var(--size-button);
+  font-size: 15px;
+  border: none;
+  color: #0e0e0e;
+  outline: none;
+  width: var(--size-button);
+  transition: all ease 0.3s;
+  background-color: #FFFBF5;
+  box-shadow: 1.5px 1.5px 3px #0e0e0e, -1.5px -1.5px 3px rgb(95 94 94 / 25%), inset 0px 0px 0px #0e0e0e, inset 0px -0px 0px #5f5e5e;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.input:focus,
+.input:not(:valid) {
+  width: 200px;
+  cursor: text;
+  box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%), inset 1.5px 1.5px 3px #0e0e0e, inset -1.5px -1.5px 3px #5f5e5e;
+}
+
+.input:focus + .icon,
+.input:not(:valid) + .icon {
+  pointer-events: all;
+  cursor: pointer;
+}
+.input:focus + .container-search {
+    position: absolute;
+    transform: translateX(--backgroun-one);
+}
+
+.container-search .icon {
+  position: absolute;
+  width: var(--size-button);
+  height: var(--size-button);
+  top: 0;
+  left: 0;
+  padding: 8px;
+  pointer-events: none;
+  color:black;
+}
+
+.container-search .icon svg {
+  width: 100%;
+  height: 100%;
+}

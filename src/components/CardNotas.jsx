@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useDispatch } from 'react-redux'
-import { actionDeleteNote, actionUpdateNote } from '../actions/notas.actions'
+import { actionDeleteNote, actionUpdateNoteState } from '../actions/notas.actions'
 import noteServices from '../services/noteServices'
 
 export default function CardNotas ({ item }) {
@@ -24,11 +24,11 @@ export default function CardNotas ({ item }) {
       }).catch((err) => {
         console.log(err)
       })
-    dispatch(actionUpdateNote(data))
+    dispatch(actionUpdateNoteState(data))
   }
   return (
     <>
-         <li >
+         <li className='list-items' >
           Titulo: {item.name}
           <br/>
           Description: {item.description}

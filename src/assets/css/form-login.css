@@ -1,22 +1,23 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding-left: 2em;
-  padding-right: 2em;
-  padding-bottom: 0.4em;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 0.4rem;
   background-color: #171717;
   border-radius: 25px;
   transition: .4s ease-in-out;
   position: absolute;
+  min-width: 350px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -40%);
+  transform: translate(-50%, -50%);
+  color: white;
 }
 
 .form:hover {
   transform: scale(1.08);
-  transform: translate(-50%, -40%);
+  transform: translate(-50%, -50%);
   border: 1px solid black;
 }
 
@@ -48,7 +49,6 @@
 }
 .label-field{
     color: white;
-    border-bottom: 1px solid;
     padding: 0.2rem;
     text-align: center;
 }

@@ -17,25 +17,29 @@ function App () {
   useEffect(() => {
     const localUser = localStorage.getItem('user')
     if (localUser) {
-      console.log(JSON.parse(localUser))
       const newUser = JSON.parse(localUser)
       if (newUser._id) {
-        console.log('user local')
         dispatch(actionLogin(newUser))
+        noteServices.setToken(newUser)
+        redirect('toDoList/desboard')
       }
     }
+
+    if (ubicacion.pathname === '/') {
+      redirect('toDoList/home')
+    }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useEffect(() => {
     if (user && user._id) {
       noteServices.getAll()
         .then((res) => {
           dispatch(actionSaveAllNotes(res.todos))
         })
     }
-    if (ubicacion.pathname === '/') {
-      redirect('/home')
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
+  }, [dispatch, user])
   return (
     <div className="">
       <Nav />
