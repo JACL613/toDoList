@@ -19,7 +19,7 @@ export default function FormLogin () {
 
     loginServices.login({ email, password })
       .then((res) => {
-        redirect('/desboard')
+        redirect('/toDoList/desboard')
         dispatch(actionLogin(res.data.user))
         noteServices.setToken(res.data.user)
         if (remember === true) {

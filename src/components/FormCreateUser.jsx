@@ -20,7 +20,7 @@ export default function FormCreateUser () {
     loginServices.create({ firstName, lastName, email, password })
       .then((res) => {
         console.log(res)
-        redirect('/desboard')
+        redirect('/toDoList/desboard')
         dispatch(actionLogin(res.data.user))
       })
   }

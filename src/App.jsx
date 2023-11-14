@@ -21,12 +21,12 @@ function App () {
       if (newUser._id) {
         dispatch(actionLogin(newUser))
         noteServices.setToken(newUser)
-        redirect('toDoList/desboard')
+        redirect('./desboard')
       }
     }
-
-    if (ubicacion.pathname === '/') {
-      redirect('toDoList/home')
+    console.log(ubicacion.pathname)
+    if (ubicacion.pathname === '/toDoList/') {
+      redirect('./home')
     }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -1,10 +1,14 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGear, faHouse, faPenToSquare, faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import { faDoorOpen, faHouse, faPenToSquare, faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
 import Search from './Search'
+import { useDispatch } from 'react-redux'
+import { actionLogout } from '../actions/user.actions'
 
 export default function Nav () {
+  const dispatch = useDispatch()
+  const redirect = useNavigate()
   const [show, setShow] = useState(false)
   const handleDropMenu = (e) => {
     const menu = document.querySelector('#menu-contenedor')
@@ -12,6 +16,16 @@ export default function Nav () {
       ? menu.classList.replace('nav-container-active', 'nav-container')
       : menu.classList.replace('nav-container', 'nav-container-active')
     setShow(!show)
+  }
+  const handleExitUser = () => {
+    dispatch(actionLogout())
+    const queryLocalUser = localStorage.getItem('user')
+    console.log(queryLocalUser)
+    if (queryLocalUser) {
+      localStorage.removeItem('user')
+      localStorage.removeItem('notas')
+    }
+    redirect('/toDoList/login')
   }
   return (
     <nav className='navbar'>
@@ -31,7 +45,7 @@ export default function Nav () {
     <li onClick={handleDropMenu}><Link to={'./login'}><FontAwesomeIcon icon={faUser}/>Login</Link></li>
     <li onClick={handleDropMenu}><Link to={'./register'}><FontAwesomeIcon icon={faUserPlus}/>Register</Link></li>
     <li onClick={handleDropMenu}><Link to={'./desboard'}><FontAwesomeIcon icon={faPenToSquare}/>Desboard</Link></li>
-    <li><Link to={'/config'}><FontAwesomeIcon icon={faGear}/>Configuración</Link></li>
+    <li><a onClick={handleExitUser}><FontAwesomeIcon icon={faDoorOpen}/>Exit</a></li>
 
       </div>
     </div>

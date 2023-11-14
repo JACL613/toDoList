@@ -20,7 +20,8 @@ export default function FormCreateNote () {
 
   useEffect(() => {
     if (!user._id) {
-      redirect('/login')
+      console.log('User not logged in')
+      redirect('/toDoList/login')
     }
     AnimationLabel()
   // eslint-disable-next-line react-hooks/exhaustive-deps
