@@ -8,6 +8,7 @@
     right: 0%;
     top: 50%;
     transform: translate(-4%, -50%);
+    z-index: +3;
 }
 .input {
   padding-left: var(--size-button);

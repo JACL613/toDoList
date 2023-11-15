@@ -25,7 +25,7 @@ function App () {
       }
     }
     console.log(ubicacion.pathname)
-    if (ubicacion.pathname === '/toDoList/') {
+    if (ubicacion.pathname === '/toDoList' || ubicacion.pathname === '/toDoList/') {
       redirect('./home')
     }
 

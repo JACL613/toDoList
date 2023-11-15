@@ -1,3 +1,4 @@
+import '../assets/css/nav.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDoorOpen, faHouse, faPenToSquare, faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons'
