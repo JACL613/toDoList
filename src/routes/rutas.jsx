@@ -9,6 +9,7 @@ import ListNotes from "../components/ListNotes";
 export const router = createBrowserRouter([
     {
       path: '/toDoList',
+      basename: 'toDoList',
       element: <App />,
       children: [
         {
