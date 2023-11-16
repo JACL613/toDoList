@@ -6,6 +6,9 @@ export default function Blog () {
     'https://res.cloudinary.com/duxmumzjg/image/upload/v1697337213/cld-sample-2.jpg'
   ]
   return (
-    <div className="container-fluid">  <Carrusel images={imgs} showButtons={true}></Carrusel></div>
+    <div className="container-fluid">
+      <Carrusel images={imgs} showButtons={true}></Carrusel>
+      <h3>cambio1</h3>
+      </div>
   )
 }
