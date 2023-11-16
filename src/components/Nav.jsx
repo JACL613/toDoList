@@ -26,7 +26,7 @@ export default function Nav () {
       localStorage.removeItem('user')
       localStorage.removeItem('notas')
     }
-    redirect('/toDoList/login')
+    redirect('/login')
   }
   return (
     <nav className='navbar'>

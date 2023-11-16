@@ -8,13 +8,11 @@ import ListNotes from '../components/ListNotes'
 
 export const router = createBrowserRouter([
   {
-    path: '/toDoList',
-    basename: 'toDoList',
+    path: '/',
     element: <App />,
     children: [
       {
         path: 'login',
-        basename: 'toDoList',
         element: <FormLogin />
       },
       {
@@ -42,4 +40,8 @@ export const router = createBrowserRouter([
       }
     ]
   }
-])
+],
+{
+  basename: '/toDoList/'
+
+})
