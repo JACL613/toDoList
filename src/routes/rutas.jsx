@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createHashRouter } from 'react-router-dom'
 import App from '../App'
 import Blog from '../components/Blog'
 import FormCreateNote from '../components/FormCreateNote'
@@ -6,7 +6,7 @@ import FormCreateUser from '../components/FormCreateUser'
 import FormLogin from '../components/FormLogin'
 import ListNotes from '../components/ListNotes'
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: '/',
     element: <App />,
@@ -40,8 +40,4 @@ export const router = createBrowserRouter([
       }
     ]
   }
-],
-{
-  basename: '/toDoList/'
-
-})
+])
