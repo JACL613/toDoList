@@ -11,10 +11,11 @@ const CarouselImg = styled.img`
   }
 `
 const ContainerCarrusel = styled.div`
-  position: relative;
-  max-width: 500px;
-  left: 50%;
-  transform: translateX(-50%);
+      position: relative;
+    max-width: 1080px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 50%;
 
 `
 const CarouselButtonContainer = styled.div`
@@ -29,10 +30,13 @@ const CarouselButtonContainer = styled.div`
 `
 
 const CarouselButton = styled.button`
-  color: white;
-  background-color: #eb118a;
-  padding: 8px;
-  margin: 0 5px;
+    color: white;
+    background-color: rgb(0 0 0 / 39%);
+    padding: 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 50%;
+    font-size: 2.5rem;
 `
 
 // eslint-disable-next-line react/prop-types

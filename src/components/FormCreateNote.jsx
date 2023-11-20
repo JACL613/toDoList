@@ -42,7 +42,10 @@ export default function FormCreateNote () {
 
   return <form className='form' onSubmit={handleSubmitNote} style={{ width: '50vw' }}>
     <Drop stateShow={dropShow} setStateShow={e => setDropShow(e)}>
-      <Calendario setClose={e => setDropShow(e)} fechaEvent={e => setFechaEvent(e)}/>
+    <div className="container-calendario desplazar">
+      <Calendario setClose={e => setDropShow(e)} fechaEvent={e => setFechaEvent(e)} editable={true}/>
+
+    </div>
     </Drop>
    <div className='form__control'>
     <input className='form__input' name="Title" onChange={e => setTitle(e.target.value)} type="text" value={title} required/>
