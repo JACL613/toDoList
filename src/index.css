@@ -25,11 +25,11 @@ body {
   font-family: "Poppins", sans-serif;
   background: var(--backgroun-two);
 }
-#main{
+#main{    
   height: 92vh;
   position: relative;
   top: 62px;
-
+  overflow: hidden scroll;
 }
 
 .container {

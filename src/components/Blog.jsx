@@ -15,13 +15,13 @@ export default function Blog () {
     setEventos(newEvents(notas))
   }, [])
   return (
-    <div className="container-fluid">
+    <>
       <h3>Welcome to your taks</h3>
       <Carrusel images={imgs} showButtons={true}></Carrusel>
 
       <div className='container-calendario'>
         <Calendario events={eventos}/>
       </div>
-    </div>
+    </>
   )
 }
