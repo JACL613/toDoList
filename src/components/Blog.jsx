@@ -16,7 +16,9 @@ export default function Blog () {
   }, [])
   return (
     <div className="container-fluid">
-      <h3>Welcome to your taks</h3>
+      <div className="container-text">
+      <h3 className='title'>Welcome to your taks<span>&#160;</span></h3>
+      </div>
       <Carrusel images={imgs} showButtons={true}></Carrusel>
 
       <div className='container-calendario'>

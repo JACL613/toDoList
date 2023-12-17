@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = 'https://birsbane-numbat-zjcf.1.us-1.fl0.io/api/todo'
+const baseUrl = 'https://todos-api.3.us-1.fl0.io/api/todo'
 
 let token
 

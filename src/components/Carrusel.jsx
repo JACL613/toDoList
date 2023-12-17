@@ -11,11 +11,10 @@ const CarouselImg = styled.img`
   }
 `
 const ContainerCarrusel = styled.div`
-      position: relative;
+    position: relative;
     max-width: 1080px;
     left: 50%;
     transform: translateX(-50%);
-    margin-top: 50%;
 
 `
 const CarouselButtonContainer = styled.div`

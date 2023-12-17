@@ -1,0 +1,31 @@
+.container-text {
+	margin: auto;
+    display: table;
+}
+
+.title { 
+	position: relative; 
+	float: left;
+	color: #000;
+	font-size: 2.5em;
+}
+
+.title   span {
+    position:absolute;
+    right: -0.5em;
+    width:0;
+    background-color: var(--backgroun-two);
+    border-left: 1px solid #000;
+    animation: escribir 5s steps(30) infinite alternate;
+}
+
+@keyframes escribir {
+    from { width: 105% }
+    to { width:0% }
+}
+
+@media (max-width: 768px){
+    .title{
+        font-size: 1.5em;
+    }
+}
